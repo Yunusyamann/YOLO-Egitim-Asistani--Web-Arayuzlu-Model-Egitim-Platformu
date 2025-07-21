@@ -72,7 +72,7 @@ Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin.
 
 1.  **Projeyi Klonlayın:**
     ```sh
-    git clone [https://github.com/](https://github.com/)[KULLANICI_ADINIZ]/YOLO-Egitim-Asistani.git
+    git clone https://github.com/Yunusyamann/YOLO-Egitim-Asistani--Web-Arayuzlu-Model-Egitim-Platformu.git
     cd YOLO-Egitim-Asistani
     ```
 
@@ -88,7 +88,7 @@ Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin.
     ```
 
 4.  **Gerekli Kütüphaneleri Yükleyin:**
-    > **Not:** Bu repoyu yayınlamadan önce `pip freeze > requirements.txt` komutu ile `requirements.txt` dosyasını oluşturduğunuzdan emin olun.
+    
     ```sh
     pip install -r requirements.txt
     ```

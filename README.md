@@ -53,7 +53,7 @@ Bu proje, karmaşık komut satırı işlemlerine olan ihtiyacı ortadan kaldıra
 | **Backend** | ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white) | Uygulama mantığı ve web sunucusu. |
 | **Asenkron Görevler** | ![Celery](https://img.shields.io/badge/Celery-37814A?style=for-the-badge&logo=celery&logoColor=white) ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white) | Uzun süren model eğitimlerini arka planda çalıştırmak için. |
 | **Frontend** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white) | Modern ve duyarlı arayüz tasarımı. |
-| **Yapay Zeka** | ![YOLO](https://img.shields.io/badge/YOLO-Ultralytics-00FFFF?style=for-the-badge) | Nesne tespiti için kullanılan YOLOv8 ve YOLOv10 modelleri. |
+| **Yapay Zeka** | ![YOLO](https://img.shields.io/badge/YOLO-Ultralytics-00FFFF?style=for-the-badge) | Nesne tespiti için kullanılan YOLO Modelleri |
 | **Veritabanı** | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) | Geliştirme ortamı için görev ve sonuç bilgilerinin saklanması. |
 
 ---
@@ -116,3 +116,4 @@ Projenin tam fonksiyonel olması için **2 terminal ve 1 arka plan servisine** i
     ```
 
 Uygulama artık `http://127.0.0.1:8000/` adresinde çalışıyor olacaktır!
+Tüm sorularınız için yunusyaman0110@gmail.com adresinden iletişime geçebilirsiniz.

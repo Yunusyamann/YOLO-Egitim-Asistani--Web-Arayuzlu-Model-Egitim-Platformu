@@ -1,0 +1,56 @@
+{% extends "trainer/base.html" %}
+
+{% block title %}Yeni Eğitim Görevi{% endblock %}
+
+{% block content %}
+<div class="hero-section text-center">
+    <h1 class="display-4 fw-bold">Yapay Zeka Modelinizi Eğitin</h1>
+    <p class="lead">Veri setinizi yükleyin, modelinizi seçin ve eğitimi saniyeler içinde başlatın.</p>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <h2 class="h1 mb-3">1</h2>
+                    <h5 class="card-title">Veri Setini Yükle</h5>
+                    <p class="card-text text-muted">YOLO formatında hazırlanmış `.zip` dosyanızı seçin.</p>
+                    <input class="form-control" type="file" id="dataset_zip" name="dataset_zip" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <h2 class="h1 mb-3">2</h2>
+                    <h5 class="card-title">Model Mimarisi Seç</h5>
+                    <p class="card-text text-muted">Eğitim için kullanmak istediğiniz YOLO modelini seçin.</p>
+                    <select class="form-select" id="selected_model" name="selected_model" required>
+                        {% for value, name in model_choices %}
+                            <option value="{{ value }}" {% if not "Aktif" in name %}disabled{% endif %}>{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <h2 class="h1 mb-3">3</h2>
+                    <h5 class="card-title">Eğitim Süresi</h5>
+                    <p class="card-text text-muted">Modelin veri seti üzerinde kaç tur döneceğini belirtin.</p>
+                    <input type="number" class="form-control" id="epochs" name="epochs" value="25" min="1" max="500" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="d-grid gap-2 col-6 mx-auto mt-4">
+        <button type="submit" class="btn btn-primary btn-lg fw-bold">🚀 Eğitimi Başlat</button>
+    </div>
+</form>
+{% endblock %}

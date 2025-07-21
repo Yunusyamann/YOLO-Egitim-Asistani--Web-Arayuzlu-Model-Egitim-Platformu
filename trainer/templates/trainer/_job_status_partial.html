@@ -1,0 +1,52 @@
+<div id="job-status-wrapper" hx-swap-oob="true">
+    <div class="card-header bg-dark text-white">
+        <h4 class="my-0">Görev #{{ job.id }} - Durum:
+            {% if job.status == 'COMPLETED' %}<span class="badge bg-success">Tamamlandı</span>
+            {% elif job.status == 'RUNNING' %}<span class="badge bg-info">Eğitiliyor...</span>
+            {% elif job.status == 'PENDING' %}<span class="badge bg-warning text-dark">Sırada Bekliyor...</span>
+            {% elif job.status == 'FAILED' %}<span class="badge bg-danger">Hata Oluştu</span>
+            {% endif %}
+        </h4>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-6"><strong>Model:</strong> {{ job.get_selected_model_display }}</div>
+            <div class="col-md-6"><strong>Epochs:</strong> {{ job.epochs }}</div>
+        </div>
+        <p class="text-muted"><strong>Başlatma Zamanı:</strong> {{ job.created_at|date:"d M Y, H:i" }}</p>
+
+        {% if job.status == 'RUNNING' or job.status == 'PENDING' %}
+            <div class="d-flex justify-content-center align-items-center my-4">
+                <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                    <span class="visually-hidden">Yükleniyor...</span>
+                </div>
+                <strong class="ms-3 fs-5">Eğitim Devam Ediyor...</strong>
+            </div>
+            <div class="alert alert-light mt-3 border-0">Sayfayı yenilemenize gerek yok, durum otomatik olarak güncellenecektir.</div>
+        {% endif %}
+
+        {% if job.status == 'COMPLETED' %}
+            {% with results=job.get_results_summary %}
+                {% if results %}
+                    <div class="alert alert-success">Eğitim başarıyla tamamlandı!</div>
+                    <h5 class="mt-4">📈 Eğitim Grafikleri</h5>
+                    <hr>
+                    <div class="row text-center g-3">
+                        {% for name, url in results.images.items %}
+                        <div class="col-md-4">
+                            <a href="{{ url }}" target="_blank"><img src="{{ url }}" class="img-fluid rounded shadow-sm" alt="{{ name }}"></a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <h5 class="mt-4">📊 Metrikler</h5>
+                    <hr>
+                    {% if results.csv_data %}<div class="table-responsive">{{ results.csv_data|safe }}</div>{% endif %}
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+
+        {% if job.status == 'FAILED' %}
+            <div class="alert alert-danger"><h4>Eğitim Sırasında Bir Hata Oluştu</h4><p>Daha fazla bilgi için sunucu loglarını kontrol edin.</p></div>
+        {% endif %}
+    </div>
+</div>

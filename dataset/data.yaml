@@ -1,0 +1,9 @@
+# Eğitim ve doğrulama resimlerinin göreli yolları
+train: ./images/train
+val: ./images/val
+
+# Sınıf sayısı
+nc: 1
+
+# Sınıf isimleri
+names: ['bitki1']

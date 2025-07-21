@@ -1,0 +1,3 @@
+celery -A yolo_project worker -P solo --loglevel=info
+
+daphne -p 8000 yolo_project.asgi:application
